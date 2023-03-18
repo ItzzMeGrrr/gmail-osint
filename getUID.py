@@ -1,5 +1,11 @@
-import requests
 import argparse
+
+try:
+    import requests
+except ImportError:
+    print("Please install requests module")
+    print("pip install requests")
+    exit(1)
 
 parser = argparse.ArgumentParser(description="Get UID from Gmail")
 parser.add_argument("email", help="Email address")
