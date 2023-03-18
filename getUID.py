@@ -2,7 +2,7 @@ import requests
 import argparse
 
 parser = argparse.ArgumentParser(description="Get UID from Gmail")
-parser.add_argument("-e", "--email", help="Email", required=True)
+parser.add_argument("email", help="Email address")
 args = parser.parse_args()._get_kwargs()
 
 email = args[0][1]
@@ -49,6 +49,10 @@ res = session.post(
 )
 
 parsed_data = res.json()
-uid = parsed_data[0][0][3][0]
-image_url = parsed_data[0][0][3][3][0][1]
-print(f"""{{"UID":"{uid}","image_url":"{image_url}"}}""")
+email_addr = res.json()[0][0][0]
+if email_addr:
+    uid = parsed_data[0][0][3][0]
+    image_url = parsed_data[0][0][3][3][0][1]
+    print(f"""{{"UID":"{uid}","image_url":"{image_url}"}}""")
+else:
+    print("UID not found")
