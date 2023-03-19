@@ -26,21 +26,21 @@ Open Gmail, and sign in if not already signed in. Set up the proxy to capture th
 1. Now click on the `To` field and start typing any email address.
    - If you are using burp, you can see the request in the `Proxy` tab.
    - If you are using any other proxy tool, find wherever the requests are displayed.
-1. The request url will look like this, `https://people-pa.clients6.google.com/$rpc/google.internal.people.v2.minimal.PeopleApiAutocompleteMinimalService/ListAutocompletions` and it will have the body following content:
+1. The request url will look like this, `https://people-pa.clients6.google.com/$rpc/google.internal.people.v2.minimal.PeopleApiAutocompleteMinimalService/ListAutocompletions` and it will have the following body content:
 
-```json
-[
-  "email-you-typed@gmail.com",
-  null,
-  null,
-  ["GMAIL_COMPOSE_WEB_POPULOUS"],
-  8,
-  null,
-  null,
-  null,
-  ["GMAIL_COMPOSE_WEB_POPULOUS", null, 2]
-]
-```
+   ```json
+   [
+     "email-you-typed@gmail.com",
+     null,
+     null,
+     ["GMAIL_COMPOSE_WEB_POPULOUS"],
+     8,
+     null,
+     null,
+     null,
+     ["GMAIL_COMPOSE_WEB_POPULOUS", null, 2]
+   ]
+   ```
 
 1. If you are in Burp you can right-click and `copy to file` to save the request. Save it as `request.txt`
 
